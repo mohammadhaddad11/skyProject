@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VacationGate Profile</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="navbar-placeholder"></div>
+
+    <div class="section1 m-4">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card one p-2">
+            <div class="card-body">
+              <div class="avatarinfo d-flex flex-row">
+                <img src="img/avatar1.jpg" alt="" class="avatar" />
+                <div class="info d-flex flex-column">
+                  <h4>mohammad haddad</h4>
+                  <h6>Junior accounting officer</h6>
+                </div>
+              </div>
+              <div class="persondata d-flex flex-row" style="display: flex; justify-content: space-between;">
+                <div class="d-flex flex-row">
+                  <i class="fa-solid fa-user"></i>
+                  <div class="d-flex flex-column align-items-center ps-3">
+                    <h5>Reporting To:</h5>
+                    <p>Salwa Assem</p>
+                  </div>
+                </div>
+                <div class="d-flex flex-row ">
+                  <i class="fa-solid fa-arrow-up-right-dots mx-2"></i>
+                  <div class="d-flex flex-column align-items-center ps-3">
+                    <h5>Corporate Level:</h5>
+                    <p>Level 10</p>
+                  </div>
+                </div>
+                <div class="d-flex flex-row"
+                  <i class="fa-solid fa-user"></i>
+                  <div class="d-flex flex-column align-items-center ps-3">
+                    <h5>Reporting To:</h5>
+                    <p>Salwa Assem</p>
+                  </div>
+                </div>
+                <div class="d-flex flex-row ">
+                  <i class="fa-solid fa-arrow-up-right-dots mx-2"></i>
+                  <div class="d-flex flex-column align-items-center ps-3">
+                    <h5>Corporate Level:</h5>
+                    <p>Level 10</p>
+                  </div>
+                </div>
+                <div class="d-flex flex-row ">
+                  <i class="fa-solid fa-arrow-up-right-dots mx-2"></i>
+                  <div class="d-flex flex-column align-items-center ps-3">
+                    <h5>Corporate Level:</h5>
+                    <p>Level 10</p>
+                  </div>
+                </div>
+              </div>
+              <div class="viewbutton">
+                <a href="./profiles.html">
+                  <button type="button" class="btn btn-secondary">
+                    New Request
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class=" section2 card mx-4 my-5 sec4 px-5 pb-5">
+        <div class="vacation-header d-flex justify-content-between">
+          <div class="d-flex align-items-end">
+            <img src="img/check.png" alt="avatar" />
+            <h5>History</h5>
+          </div>
+        </div>
+        <div id="HistoryData" class="row mt-5"></div>
+        <a href="./Requests.html" class="custom-btn btn"> View more</a>
+      </div>
+
+      <div class=" section3 card mx-4 my-5 sec4 px-5 pb-5">
+        <div class="vacation-header d-flex justify-content-between">
+          <div class="d-flex align-items-end">
+            <img src="img/check.png" alt="avatar" />
+            <h5>Pending Requests</h5>
+          </div>
+        </div>
+        <div id="PendingData" class="row mt-5"></div>
+        <a href="./Requests.html" class="custom-btn btn"> View more</a>
+      </div>
+
+    <script>
+            const HistoryData = [
+  {
+    name: "Annual Vacation",
+    date: "1/1/2024 - 8/1/2024",
+    duration: "8 days",
+    approvedBy: "Approved by: Ahmad Khaled",
+  },
+  {
+    name: "Sick Vacation",
+    date: "15/2/2024 - 22/2/2024",
+    duration: "8 days",
+    approvedBy: "Approved by: Sara Ali",
+  },
+  {
+    name: "Non Paid Vacation",
+    date: "1/3/2024 - 8/3/2024",
+    duration: "8 days",
+    approvedBy: "Approved by: Khaled Zaid",
+  },
+  {
+    name: "Annual Vacation",
+    date: "15/4/2024 - 22/4/2024",
+    duration: "8 days",
+    approvedBy: "Approved by: Mona Saleh",
+  },
+  {
+    name: "Sick Vacation",
+    date: "1/5/2024 - 8/5/2024",
+    duration: "8 days",
+    approvedBy: "Approved by: Yazan Fawzi",
+  },
+  {
+    name: "Non Paid Vacation",
+    date: "15/6/2024 - 22/6/2024",
+    duration: "8 days",
+    approvedBy: "Approved by: Nadia Sami",
+  },
+];
+function displayDataonlythree(dataToDisplay) {
+        const pageContent = document.getElementById("HistoryData");
+        pageContent.innerHTML = ""; 
+
+        dataToDisplay.forEach((item) => {
+          const card = document.createElement("div");
+          card.className = "col-md-3 py-4";
+          card.innerHTML = `<div class="card">
+            <div class="d-flex flex-column">
+              <div class="d-flex ">
+                <h4>${item.name}</h4>
+              </div>
+              <div class="info ms-4">
+                <div class="mb-2">
+                                    <p>${item.date}</p>
+
+                </div>
+                <div>
+                                   <p>${item.duration}</p>
+
+                </div>
+
+                <div class="mt-2">
+                 <p>${item.approvedBy}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+          pageContent.appendChild(card);
+        });
+      }
+      displayDataonlythree(HistoryData);
+    
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("navbar.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("navbar-placeholder").innerHTML = data;
+          })
+          .catch((error) => console.error("Error loading navbar:", error));
+      });
+   
+      const data = [
+  {
+    name: "Ali Kamal",
+    date: "5/3/2024",
+    duration: "1 Week (10/4/2023 - 17/4/2023)",
+    salary: "500 AED",
+  },
+  {
+    name: "Sara Ahmed",
+    date: "10/3/2024",
+    duration: "3 Weeks (20/4/2023 - 11/5/2023)",
+    salary: "1500 AED",
+  },
+  {
+    name: "Fatima Ali",
+    date: "15/3/2024",
+    duration: "1 Week (25/4/2023 - 2/5/2023)",
+    salary: "500 AED",
+  },
+  {
+    name: "Omar Zaki",
+    date: "20/3/2024",
+    duration: "2 Weeks (30/4/2023 - 14/5/2023)",
+    salary: "1000 AED",
+  },
+  {
+    name: "Yasmin Omar",
+    date: "25/3/2024",
+    duration: "2 Weeks (5/5/2023 - 19/5/2023)",
+    salary: "1000 AED",
+  },
+  {
+    name: "Hassan Khaled",
+    date: "30/3/2024",
+    duration: "1 Week (10/5/2023 - 17/5/2023)",
+    salary: "500 AED",
+  },
+  {
+    name: "Lina Mohamed",
+    date: "5/4/2024",
+    duration: "2 Weeks (15/5/2023 - 29/5/2023)",
+    salary: "1000 AED",
+  },
+  {
+    name: "Rami Nader",
+    date: "10/4/2024",
+    duration: "3 Weeks (20/5/2023 - 10/6/2023)",
+    salary: "1500 AED",
+  },
+  {
+    name: "Khaled Youssef",
+    date: "15/4/2024",
+    duration: "1 Week (25/5/2023 - 1/6/2023)",
+    salary: "500 AED",
+  },
+  {
+    name: "Mona Samir",
+    date: "20/4/2024",
+    duration: "2 Weeks (30/5/2023 - 13/6/2023)",
+    salary: "1000 AED",
+  },
+  
+  
+];
+   
+function displayDataonlythreePendingData(dataToDisplay) {
+        const pageContent = document.getElementById("PendingData");
+        pageContent.innerHTML = ""; 
+
+        dataToDisplay.forEach((item) => {
+          const card = document.createElement("div");
+    card.className = "col-md-4 pb-4";
+    card.innerHTML = `
+        <div class="card ">
+          <div class="d-flex flex-column">
+            <div class="id d-flex align-items-center flex-column">
+              <img src="img/avatar1.jpg" alt="avatar" class="mb-1" />
+              <h4>${item.name}</h4>
+            </div>
+            <div class="info ms-4">
+              <div class="mb-2">
+                <p class="header">Submitted on:</p>
+                <p>${item.date}</p>
+              </div>
+              <div>
+                <p class="header">Duration:</p>
+                <p>${item.duration}</p>
+              </div>
+              <div class="mt-2">
+                <p class="header">Currently at:</p>
+                <p style="    color: green;
+    font-weight: bold;">Omar ababneh</p>
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      `;
+          pageContent.appendChild(card);
+        });
+      }
+      displayDataonlythreePendingData(data.slice(0, 3));
+   </script>
+  </body>
+</html>
